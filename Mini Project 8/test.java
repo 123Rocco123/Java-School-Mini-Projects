@@ -67,6 +67,20 @@ class test {
               update.remove(x+2);
 
               //System.out.println(update);
+          } else if (newExpression.get((x + 2)).equals('T')) {
+            int test = Character.getNumericValue(newExpression.get(x + 1));
+            int test1 = Character.getNumericValue(newExpression.get(x + 3));
+
+            int newValue = (test * 3) + 3;
+
+            update.set((x+1), newValue);
+            update.set((x+2), test1);
+            update.remove(x+3);
+
+            //System.out.println(update);
+
+            update.set((x+1), (newValue * test1));
+            update.remove(x+2);
           }
         }
 
