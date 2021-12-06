@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 class test {
-  // The class below is used to check if the values that the user inputted for the disabilities are valid or not.
+  // The function below is used to check if the values that the user inputted for the disabilities are valid or not.
   public static void checker(ArrayList values, String team) {
     // The "trueOrFalse" ArrayList is used to store if the values are valid.
        // The valuesToCheck is instead used to store the argument "values".
