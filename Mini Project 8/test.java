@@ -77,7 +77,7 @@ class test {
             update.set((x+2), test1);
             update.remove(x+3);
 
-            //System.out.println(update);
+            System.out.println(update);
 
             update.set((x+1), (newValue * test1));
             update.remove(x+2);
