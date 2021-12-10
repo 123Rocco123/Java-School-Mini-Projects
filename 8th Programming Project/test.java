@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 class variables {
-  ArrayList originalExpression = new ArrayList();
-  ArrayList<String> finalExpression = new ArrayList<String>();
+  ArrayList<Character> originalExpression = new ArrayList<Character>();
+  ArrayList finalExpression = originalExpression;
 }
 
 
@@ -13,15 +13,23 @@ class test {
 
     for (int i = 0; i < classObject1.originalExpression.size(); i++) {
       if (classObject1.originalExpression.get(i).equals('A')) {
-        classObject1.originalExpression.set(i, 10);
+        classObject1.finalExpression.set(i, 10);
       } else if (classObject1.originalExpression.get(i).equals('B')) {
-        classObject1.originalExpression.set(i, 11);
+        classObject1.finalExpression.set(i, 11);
       } else if (classObject1.originalExpression.get(i).equals('C')) {
-        classObject1.originalExpression.set(i, 12);
+        classObject1.finalExpression.set(i, 12);
+      } else if (classObject1.originalExpression.get(i).equals('*')) {
+        int x = Character.getNumericValue(classObject1.originalExpression.get(i + 1));
+        int y = Character.getNumericValue(classObject1.originalExpression.get(i + 2));
+
+        classObject1.finalExpression.set(i, (x * y));
+
+        classObject1.finalExpression.remove(i + 1);
+        classObject1.finalExpression.remove(i + 1);
       }
     }
 
-    System.out.println(classObject1.originalExpression);
+    System.out.println(classObject1.finalExpression);
   }
 
   public static void expression() {
