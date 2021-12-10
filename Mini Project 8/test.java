@@ -51,10 +51,18 @@ class test {
             update.remove((x + 1));
           }
         } else {
+            // The else statement here is used when you're multiplying two numbers with a "T".
+               // E.g. *T12 or *1T2
+
+            // The if statement below is used to see if the T is in the first index value after the "*".
+               // I.e. *T..
             if (newExpression.get((x + 1)).equals('T')) {
+              // The two int variables below are used to change the value of the value of the variables in the second and third index to integers from characters.
+                 // This is so that we can use binary functions like "*", "+", and etc without having errors.
               int test = Character.getNumericValue(newExpression.get(x + 2));
               int test1 = Character.getNumericValue(newExpression.get(x + 3));
 
+              // The variable below is used to store the "T" value of the index.
               int newValue = (test * 3) + 3;
 
               update.set((x+1), newValue);
