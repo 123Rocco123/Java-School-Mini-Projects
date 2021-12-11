@@ -19,13 +19,21 @@ class test {
       } else if (classObject1.originalExpression.get(i).equals('C')) {
         classObject1.finalExpression.set(i, 12);
       } else if (classObject1.originalExpression.get(i).equals('*')) {
-        int x = Character.getNumericValue(classObject1.originalExpression.get(i + 1));
-        int y = Character.getNumericValue(classObject1.originalExpression.get(i + 2));
+        if (!classObject1.originalExpression.get(i + 1).equals('T') && !classObject1.originalExpression.get(i + 2).equals('T')) {
+          int x = Character.getNumericValue(classObject1.originalExpression.get(i + 1));
+          int y = Character.getNumericValue(classObject1.originalExpression.get(i + 2));
 
-        classObject1.finalExpression.set(i, (x * y));
+          classObject1.finalExpression.set(i, (x * y));
 
-        classObject1.finalExpression.remove(i + 1);
-        classObject1.finalExpression.remove(i + 1);
+          classObject1.finalExpression.remove(i + 1);
+          classObject1.finalExpression.remove(i + 1);
+        } else if (classObject1.originalExpression.get(i + 1).equals('T')) {
+          int x = Character.getNumericValue(classObject1.finalExpression.get(i + 2));
+
+          // int y = x + (x + 1) + (x + 2)
+
+          classObject1.finalExpression.set()
+        }
       }
     }
 
