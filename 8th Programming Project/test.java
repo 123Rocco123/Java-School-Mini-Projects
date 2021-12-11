@@ -11,12 +11,13 @@ class test {
        // The reason that the ArrayList is an Object type is because of the fact that with an Objcet type we can store different data types all in the same data.
     ArrayList<Object> finalFunctionArray = new ArrayList<Object>();
 
-    // The first for loop is used to quickly convert and basic variables in the equation.
-       // I.e. Numbers 1 through 9, A, B, and C, *.
+    // The for loop here is used to add 0s to the ArrayList so as to allow for us to change the values later on in the program.
     for (int x = 0; x < inputFunction.length(); x++) {
       finalFunctionArray.add(0);
     }
 
+    // The first for loop is used to quickly convert and basic variables in the equation.
+       // I.e. Numbers 1 through 9, A, B, and C, *.
     for (int i = 0; i < inputFunction.length(); i++) {
       if (Character.getNumericValue(finalFunction.charAt(i)) <= 9 && Character.getNumericValue(finalFunction.charAt(i)) >= 0) {
         finalFunctionArray.set(i, Character.getNumericValue(finalFunction.charAt(i)));
@@ -63,13 +64,19 @@ class test {
     System.out.println(finalFunction);
     System.out.println(finalFunctionArray);
 
+    // The if statement below is used for recursion.
+       // The if statement checks if the array is larger than 1, if it is, then it means that the equation has yet to finish.
     if (finalFunctionArray.size() > 1) {
+      // The string below is used to store the new string which we pass into the characterChecker.
+         // It contains the equation which we're supposed to solve in a string format.
       String stringToOverlap = "";
 
+      // Since the progress of solving the equation is stored isnide of the "finalFunctionArray" Array, we have to use a for loop to iterate through the list, and append all of the elements to the string above.
       for (int indexValues = 0; indexValues < finalFunctionArray.size(); indexValues++) {
         stringToOverlap += finalFunctionArray.get(indexValues);
       }
 
+      // Recursion then occurs below when we call the function "characterChecker" from within characterChecker. 
       characterChecker(stringToOverlap);
     }
   }
