@@ -2,10 +2,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 class test {
+  // The function below is used to check all of the characters in the string which are then converted to the desired function, and then stored into the ArrayList.
   public static void characterChecker(String inputFunction) {
+    // The String below is used to store the string that we pass into the function.
+       // The string which we pass in as an argument contains the formula which we have to complete.
     String finalFunction = inputFunction;
+    // The ArrayList below is used an Object type, and is used to store the final answer.
+       // The reason that the ArrayList is an Object type is because of the fact that with an Objcet type we can store different data types all in the same data.
     ArrayList<Object> finalFunctionArray = new ArrayList<Object>();
 
+    // The first for loop is used to quickly convert and basic variables in the equation.
+       // I.e. Numbers 1 through 9, A, B, and C, *.
     for (int x = 0; x < inputFunction.length(); x++) {
       finalFunctionArray.add(0);
     }
@@ -38,19 +45,33 @@ class test {
           finalFunctionArray.remove(m+1);
           finalFunctionArray.remove(m+1);
         } else if (finalFunction.charAt(m + 1) == 'T') {
-          int n = Character.getNumericValue(finalFunction.charAt(m+ 2));
+          int n = Character.getNumericValue(finalFunction.charAt(m + 2));
 
           finalFunctionArray.set((m + 1), ((n *3) + 3));
           finalFunctionArray.remove(m+2);
           break;
         } else if (finalFunction.charAt(m + 2) == 'T') {
-          
+          int b = Character.getNumericValue(finalFunction.charAt(m + 3));
+
+          finalFunctionArray.set((m + 2), ((b *3) + 3));
+          finalFunctionArray.remove(m+3);
+          break;
         }
       }
     }
 
     System.out.println(finalFunction);
     System.out.println(finalFunctionArray);
+
+    if (finalFunctionArray.size() > 1) {
+      String stringToOverlap = "";
+
+      for (int indexValues = 0; indexValues < finalFunctionArray.size(); indexValues++) {
+        stringToOverlap += finalFunctionArray.get(indexValues);
+      }
+
+      characterChecker(stringToOverlap);
+    }
   }
 
   // The "input()" function is used to ask the user the expression that they want to work on.
