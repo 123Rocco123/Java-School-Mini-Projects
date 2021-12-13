@@ -7,6 +7,8 @@ class test {
     // The String below is used to store the string that we pass into the function.
        // The string which we pass in as an argument contains the formula which we have to complete.
     String finalFunction = inputFunction;
+
+    System.out.println(finalFunction);
     // The ArrayList below is used an Object type, and is used to store the final answer.
        // The reason that the ArrayList is an Object type is because of the fact that with an Objcet type we can store different data types all in the same data.
     ArrayList<Object> finalFunctionArray = new ArrayList<Object>();
@@ -18,7 +20,7 @@ class test {
 
     // The first for loop is used to quickly convert and basic variables in the equation.
        // I.e. Numbers 1 through 9, A, B, and C, *.
-    for (int i = 0; i < inputFunction.length(); i++) {
+    for (int i = finalFunctionArray.size() - 1; i >= 0; i--) {
       if (Character.getNumericValue(finalFunction.charAt(i)) <= 9 && Character.getNumericValue(finalFunction.charAt(i)) >= 0) {
         finalFunctionArray.set(i, Character.getNumericValue(finalFunction.charAt(i)));
       } else if (finalFunction.charAt(i) == 'A') {
@@ -35,7 +37,7 @@ class test {
       }
     }
 
-    for (int m = 0; m < inputFunction.length(); m++) {
+    for (int m = finalFunctionArray.size() - 1; m >= 0; m--) {
       if (finalFunction.charAt(m) == '*') {
         if (finalFunction.charAt(m + 1) != 'T' && finalFunction.charAt(m + 2) != 'T') {
           int y = Character.getNumericValue(finalFunction.charAt(m+1));
@@ -61,6 +63,21 @@ class test {
       }
     }
 
+    System.out.println(finalFunctionArray);
+
+    for (int TChecker = finalFunctionArray.size() - 1; TChecker >= 0; TChecker--) {
+      if (finalFunction.charAt(TChecker) == 'T') {
+        System.out.println(TChecker);
+        int Tnext = (Integer)finalFunctionArray.get(TChecker + 1);
+
+        Tnext = (Tnext * 3) + 3;
+
+        finalFunctionArray.set(TChecker, Tnext);
+        finalFunctionArray.remove(TChecker + 1);
+        break;
+      }
+    }
+
     System.out.println(finalFunction);
     System.out.println(finalFunctionArray);
 
@@ -76,7 +93,7 @@ class test {
         stringToOverlap += finalFunctionArray.get(indexValues);
       }
 
-      // Recursion then occurs below when we call the function "characterChecker" from within characterChecker. 
+      // Recursion then occurs below when we call the function "characterChecker" from within characterChecker.
       characterChecker(stringToOverlap);
     }
   }
